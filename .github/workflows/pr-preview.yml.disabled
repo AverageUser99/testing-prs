@@ -1,0 +1,55 @@
+# name: PR preview
+#
+# on:
+#   pull_request:
+#     types: [opened, reopened, synchronize, closed]
+#
+# permissions:
+#   contents: write
+#   pull-requests: write
+#   pages: write
+#   id-token: write
+#
+# # All previews share one Pages deployment; serialize updates so one PR
+# # cannot overwrite another PR's changes with an older site snapshot.
+# concurrency:
+#   group: pr-preview-site
+#   queue: max
+#
+# jobs:
+#   preview:
+#     # Forked PRs cannot safely write to the preview branch with GITHUB_TOKEN.
+#     if: github.event.pull_request.head.repo.full_name == github.repository
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions/setup-node@v4
+#         if: github.event.action != 'closed'
+#         with:
+#           node-version: 22
+#           cache: npm
+#       - name: Build preview
+#         if: github.event.action != 'closed'
+#         run: |
+#           npm ci
+#           npm run build -- --base=./
+#       - name: Publish or remove preview
+#         uses: rossjrw/pr-preview-action@v1
+#         with:
+#           source-dir: ./dist/
+#           preview-branch: gh-pages
+#           qr-code: false
+#           git-config-name: AverageUser99
+#           git-config-email: 353065961+AverageUser99@users.noreply.github.com
+#       # GITHUB_TOKEN pushes do not trigger a Pages build, so deploy the
+#       # accumulated preview branch explicitly after adding/removing this PR.
+#       - name: Check out preview site
+#         uses: actions/checkout@v4
+#         with:
+#           ref: gh-pages
+#           path: preview-site
+#       - uses: actions/upload-pages-artifact@v3
+#         with:
+#           path: preview-site
+#       - name: Deploy preview site
+#         uses: actions/deploy-pages@v4
