@@ -1,19 +1,18 @@
 :root {
-  font-family: system-ui, sans-serif;
-  color: #292534;
-  background: linear-gradient(
-    135deg,
-    #dbeafe 0%,
-    #dbeafe 33.33%,
-    #ede9fe 33.33%,
-    #ede9fe 66.67%,
-    #fce7f3 66.67%,
-    #fce7f3 100%
-  );
-  background-attachment: fixed;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #18231f;
+  background: #f3f5ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  min-width: 320px;
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -21,18 +20,69 @@ main {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  align-content: center;
-  gap: 1rem;
+  padding: clamp(1.5rem, 6vw, 5rem);
+  box-sizing: border-box;
+  background:
+    radial-gradient(ellipse at 14% 12%, rgb(255 255 255 / 85%), transparent 38%),
+    #f3f5ef;
+}
+
+.introduction {
+  width: min(100%, 54rem);
+  padding: clamp(2rem, 8vw, 6.5rem);
+  box-sizing: border-box;
+  border: 1px solid rgb(24 35 31 / 8%);
+  border-radius: 1.5rem;
+  background: #fffefa;
+  box-shadow: 0 2rem 5rem rgb(30 47 38 / 8%);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #52735f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 h1 {
+  max-width: 11ch;
   margin: 0;
-  font-size: clamp(3rem, 8vw, 6rem);
-  letter-spacing: -0.05em;
+  font-size: clamp(2.75rem, 8vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
 }
 
-p {
-  margin: 0;
-  color: #51495f;
-  font-size: 1.25rem;
+.summary {
+  max-width: 38rem;
+  margin: 1.75rem 0 2rem;
+  color: #59645d;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: #244b37;
+  color: #fffefa;
+  font-weight: 650;
+}
+
+.signature img {
+  display: block;
+  border-radius: 50%;
+}
+
+@media (max-width: 480px) {
+  .introduction {
+    border-radius: 1rem;
+  }
 }
