@@ -10,9 +10,11 @@ permissions:
   pages: write
   id-token: write
 
+# All previews share one Pages deployment; serialize updates so one PR
+# cannot overwrite another PR's changes with an older site snapshot.
 concurrency:
-  group: preview-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
+  group: pr-preview-site
+  queue: max
 
 jobs:
   preview:
