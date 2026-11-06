@@ -10,5 +10,7 @@ if (app) {
   basketball.alt = "Basketball";
   basketball.width = 50;
   basketball.height = 50;
-  app.append(heading, basketball);
+  const text = document.createElement("p");
+  text.textContent = "test";
+  app.append(heading, basketball, text);
 }
