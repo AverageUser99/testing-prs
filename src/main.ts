@@ -5,5 +5,10 @@ const app = document.querySelector<HTMLElement>("#app");
 if (app) {
   const heading = document.createElement("h1");
   heading.textContent = "Hello world";
-  app.append(heading);
+  const basketball = document.createElement("img");
+  basketball.src = "./basketball.svg";
+  basketball.alt = "Basketball";
+  basketball.width = 50;
+  basketball.height = 50;
+  app.append(heading, basketball);
 }
