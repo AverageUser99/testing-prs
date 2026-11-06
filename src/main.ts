@@ -11,9 +11,10 @@ if (app) {
         A home for basketball fans to discover the game, celebrate its moments,
         and get inspired to hit the court.
       </p>
-      <span class="action-label">
-        Basketball starts here <span aria-hidden="true">→</span>
-      </span>
+      <div class="signature">
+        <img src="/basketball.svg" width="36" height="36" alt="" />
+        <span>Basketball starts here</span>
+      </div>
     </section>
   `;
 }
