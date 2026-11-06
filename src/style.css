@@ -1,7 +1,16 @@
 :root {
   font-family: system-ui, sans-serif;
   color: #292534;
-  background: #808080;
+  background: linear-gradient(
+    135deg,
+    #dbeafe 0%,
+    #dbeafe 33.33%,
+    #ede9fe 33.33%,
+    #ede9fe 66.67%,
+    #fce7f3 66.67%,
+    #fce7f3 100%
+  );
+  background-attachment: fixed;
 }
 
 body {
@@ -24,6 +33,6 @@ h1 {
 
 p {
   margin: 0;
-  color: #716b7d;
+  color: #51495f;
   font-size: 1.25rem;
 }
