@@ -3,14 +3,17 @@ import "./style.css";
 const app = document.querySelector<HTMLElement>("#app");
 
 if (app) {
-  const heading = document.createElement("h1");
-  heading.textContent = "Hello world";
-  const basketball = document.createElement("img");
-  basketball.src = "./basketball.svg";
-  basketball.alt = "Basketball";
-  basketball.width = 50;
-  basketball.height = 50;
-  const text = document.createElement("p");
-  text.textContent = "test";
-  app.append(heading, basketball, text);
+  app.innerHTML = `
+    <section class="introduction" aria-labelledby="intro-title">
+      <span class="eyebrow">For the love of the game</span>
+      <h1 id="intro-title">Find your next great shot.</h1>
+      <p class="summary">
+        A home for basketball fans to discover the game, celebrate its moments,
+        and get inspired to hit the court.
+      </p>
+      <span class="action-label">
+        Basketball starts here <span aria-hidden="true">→</span>
+      </span>
+    </section>
+  `;
 }
