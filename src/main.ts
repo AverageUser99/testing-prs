@@ -8,7 +8,7 @@ if (app) {
   const basketball = document.createElement("img");
   basketball.src = "./basketball.svg";
   basketball.alt = "Basketball";
-  basketball.width = 30;
-  basketball.height = 30;
+  basketball.width = 50;
+  basketball.height = 50;
   app.append(heading, basketball);
 }
